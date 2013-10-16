@@ -7,6 +7,8 @@
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-contrib-concat": "latest",
-    "grunt-contrib-copy": "latest"
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-text-replace": "~0.3.8"
   }
 }

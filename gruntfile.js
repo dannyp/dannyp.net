@@ -4,12 +4,20 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, cwd: 'components/bootstrap/', src: ['less/*.less',  'img/*'], dest: 'src/', filter: 'isFile'}, // includes files in path
-          {expand: true, cwd: 'components/bootstrap/js/', src: ['*.js'], dest: 'src/js/bootstrap/', filter: 'isFile'}, // includes files in path
-          {expand: true, cwd: 'components/jquery/', src: ['jquery.js'], dest: 'src/js/', filter: 'isFile'}
+          {expand: true, cwd: 'bower_components/bootstrap/', src: ['less/*.less',  'img/*'], dest: 'src/', filter: 'isFile'}, // includes files in path
+          {expand: true, cwd: 'bower_components/bootstrap/js/', src: ['*.js'], dest: 'src/js/bootstrap/', filter: 'isFile'}, // includes files in path
+          {expand: true, cwd: 'bower_components/font-awesome/', src: ['less/*.less'], dest: 'src/less/font-awesome', filter: 'isFile'}, // includes files in path
+          {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'font/*'], dest: 'src/', filter: 'isFile'}, // includes files in path
+          {expand: true, cwd: 'bower_components/jquery/', src: ['jquery.js'], dest: 'src/js/', filter: 'isFile'}
           //{src: ['path/**'], dest: 'dest/'}, // includes files in path and its subdirs
-          //{expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'}, // makes all src relative to cwd
+          //{expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'}, // makes all src relative t cwd
           //{expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'} // flattens results to a single level
+        ]
+      },
+      build : {
+        files : [
+          {expand: true, cwd: 'src/', src: [ 'font/*'], dest: 'build/', filter: 'isFile' },
+          {expand: true, cwd: 'src/', src: [ '*.html','*.png','*.txt'], dest: 'build/', filter: 'isFile' }
         ]
       }
     },
@@ -51,7 +59,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      // define the files to lint
+      // define the files t lint
       files: ['gruntfile.js'],
       // configure JSHint (documented at http://www.jshint.com/docs/)
       options: {
@@ -62,8 +70,38 @@ module.exports = function(grunt) {
           module: true
         }
       }
-      
     },
+	replace : {
+		"bootstrap-less" : {
+			src : ['src/less/bootstrap.less'],
+			dest : ['src/less/bootstrap.less'],
+			replacements : [{
+				from : 'glyphicons.less',
+				to : 'font-awesome/less/font-awesome.less'
+			}]
+		}
+	},
+	less : {
+		development : {
+			options : {
+				paths: ['build/less']
+			},
+			files : {
+				'build/css/bootstrap.css' : ['src/less/bootstrap.less'],
+				'build/css/font-awesome.css' : ['src/less/font-awesome/less/font-awesome.less']
+			}
+		},
+		production : {
+			options : {
+				paths: ['build/less'],
+				yuicompress : true
+			},
+			files : {
+				'build/css/bootstrap-min.css' : ['src/less/bootstrap.less'],
+				'build/css/font-awesome-min.css' : ['src/less/font-awesome/less/font-awesome.less']
+			}
+		}
+	},
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint', 'concat', 'uglify']
@@ -76,11 +114,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
- 
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-text-replace');
+
   // Register the default tasks
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'less', 'copy:build']);
  
   // Register building task
-  grunt.registerTask('build', ['copy']);
+  grunt.registerTask('init', ['copy:main','replace']);
  
 };
