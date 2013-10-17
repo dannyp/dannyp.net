@@ -19,7 +19,19 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/', src: [ 'font/*'], dest: 'build/', filter: 'isFile' },
           {expand: true, cwd: 'src/', src: [ '*.html','*.png','*.txt'], dest: 'build/', filter: 'isFile' }
         ]
+      },
+      basic : {
+        files : [
+          {expand: true, cwd: 'bower_components/bootstrap/dist', src:['css/*', 'js/*'], dest:'build/', filter:'isFile'},
+          {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'font/*'], dest: 'build/', filter: 'isFile'}, 
+          {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'css/*'], dest: 'build/', filter: 'isFile'}, 
+          {expand: true, cwd: 'bower_components/respond/', src:['respond.src.js'], dest:'build/js/', filter:'isFile'},
+          {expand: true, cwd: 'bower_components/html5shiv/dist', src:['*.js'], dest:'build/js/', filter:'isFile'},
+          {expand: true, cwd: 'src/', src:['*.html', '*.ico', 'img/', 'js/*.js', 'css/*.css'], dest:'build/', filter:'isFile'},
+          {expand: true, cwd: 'bower_components/jquery/', src: ['jquery.js'], dest: 'build/js/', filter: 'isFile'}
+        ]
       }
+      
     },
     concat: {
       options: {
@@ -118,7 +130,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-text-replace');
 
   // Register the default tasks
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'less', 'copy:build']);
+//  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'less', 'copy:build']);
+  grunt.registerTask('default', ['copy:basic']);
  
   // Register building task
   grunt.registerTask('init', ['copy:main','replace']);
