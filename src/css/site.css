@@ -6,3 +6,8 @@ section,h1,h2,h3,h4,h5,h6 {
 
 body { height: 100%; }
 section{ padding-top: 70px; height:100%;}
+
+
+#education .year {
+  min-width: 60px;
+}
