@@ -9,6 +9,7 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'bower_components/font-awesome/', src: ['less/*.less'], dest: 'src/less/font-awesome', filter: 'isFile'}, // includes files in path
           {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'font/*'], dest: 'src/', filter: 'isFile'}, // includes files in path
           {expand: true, cwd: 'bower_components/jquery/', src: ['jquery.js'], dest: 'src/js/', filter: 'isFile'}
+          
           //{src: ['path/**'], dest: 'dest/'}, // includes files in path and its subdirs
           //{expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'}, // makes all src relative t cwd
           //{expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'} // flattens results to a single level
@@ -23,11 +24,12 @@ module.exports = function(grunt) {
       basic : {
         files : [
           {expand: true, cwd: 'bower_components/bootstrap/dist', src:['css/*', 'js/*'], dest:'build/', filter:'isFile'},
+          {expand: true, cwd: 'bower_components/bootstrap/dist', src:['css/*', 'js/*'], dest:'build/', filter:'isFile'},
           {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'font/*'], dest: 'build/', filter: 'isFile'}, 
           {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'css/*'], dest: 'build/', filter: 'isFile'}, 
           {expand: true, cwd: 'bower_components/respond/', src:['respond.src.js'], dest:'build/js/', filter:'isFile'},
           {expand: true, cwd: 'bower_components/html5shiv/dist', src:['*.js'], dest:'build/js/', filter:'isFile'},
-          {expand: true, cwd: 'src/', src:['*.html', '*.ico', 'img/', 'js/*.js', 'css/*.css'], dest:'build/', filter:'isFile'},
+          {expand: true, cwd: 'src/', src:['*.html', '*.ico', 'img/*', 'js/*.js', 'css/*.css'], dest:'build/', filter:'isFile'},
           {expand: true, cwd: 'bower_components/jquery/', src: ['jquery.js'], dest: 'build/js/', filter: 'isFile'}
         ]
       }
