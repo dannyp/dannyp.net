@@ -27,6 +27,13 @@ a:hover {
 	text-decoration: none;
 }
 
+#work .show-more {
+	display: none;
+}
+
+#work .show-hover:hover .show-more {
+	display: inline;
+}
 
 .navbar-default {
   background-color: #fff;

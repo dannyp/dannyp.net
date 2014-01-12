@@ -26,7 +26,7 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'bower_components/bootstrap/dist', src:['css/*', 'js/*'], dest:'build/', filter:'isFile'},
           {expand: true, cwd: 'bower_components/bootstrap/dist', src:['css/*', 'js/*'], dest:'build/', filter:'isFile'},
           {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'font/*'], dest: 'build/', filter: 'isFile'}, 
-          {expand: true, cwd: 'bower_components/font-awesome/', src: [ 'css/*'], dest: 'build/', filter: 'isFile'}, 
+          {expand: true, cwd: 'bower_components/chartjs/', src: [ '*.js'], dest: 'build/js/', filter: 'isFile'}, 
           {expand: true, cwd: 'bower_components/respond/', src:['respond.src.js'], dest:'build/js/', filter:'isFile'},
           {expand: true, cwd: 'bower_components/html5shiv/dist', src:['*.js'], dest:'build/js/', filter:'isFile'},
           {expand: true, cwd: 'src/', src:['*.html', '*.ico', 'img/*', 'js/*.js', 'css/*.css'], dest:'build/', filter:'isFile'},

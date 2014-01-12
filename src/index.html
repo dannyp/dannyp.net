@@ -12,7 +12,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/site.css" rel="stylesheet">
-
+		
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin' rel='stylesheet' type='text/css'>
@@ -83,26 +83,51 @@
 							
 							<div id="work-dws">
 								<h3>
-									<small>2011 - 2014</small> DWS Advanced Business Solutions 
-									<span class="hand-cursor text-muted" data-toggle="collapse" data-target="#work-dws-info"><i class="icon-chevron-down"></i></span>
+									<span class="hand-cursor text-primary show-hover" data-toggle="collapse" data-target="#work-dws-info">
+										<small>2011 - 2014</small> DWS Advanced Business Solutions 
+										<i class="icon-chevron-down show-more"></i>
+									</span>
 								</h3>
-								<p class="collapse" id="work-dws-info">Consultant</p>
+								<div class="collapse" id="work-dws-info">
+									<p class="lead">Software Consultant</p>
+									<div class="row">
+										<div class="col-md-4 text-center">
+											<canvas id="dws-chart-1" height="100" width="100" data-chart="doughnut" data-percent="85"></canvas>
+											 <p>.NET Development</p>
+										</div>
+										<div class="col-md-4 text-center">
+											<canvas id="dws-chart-2" height="100" width="100" data-chart="doughnut" data-percent="60"></canvas>
+											<p>SQL Server</p>
+										</div>
+										<div class="col-md-4 text-center">
+											<canvas id="dws-chart-2" height="100" width="100" data-chart="doughnut" data-percent="75"></canvas>
+											<p>Frontend (Web) Development</p>
+										</div>
+								</div>
 							</div>
 							
 							<div id="work-labibo">
 								<h3>
-									<small>2010 - 2010</small> Labibo Interactive 
-									<span class="hand-cursor text-muted" data-toggle="collapse" data-target="#work-labibo-info"><i class="icon-chevron-down"></i></span>
+									<span class="hand-cursor text-primary show-hover" data-toggle="collapse" data-target="#work-labibo-info">
+										<small>2010 - 2010</small> Labibo Interactive 
+										<i class="icon-chevron-down show-more"></i>
+									</span>
 								</h3>
-								<p class="collapse" id="work-labibo-info">Developer</p>
+								<div class="collapse" id="work-labibo-info">
+									<p class="lead">Web Developer / R&amp;D</p>
+								</div>
 							</div>
 				
 							<div id="work-uofa">
 								<h3>
-									<small>2010 - 2010</small> University of Adelaide, School of Computer Science
-									<span class="hand-cursor text-muted" data-toggle="collapse" data-target="#work-uofa-info"><i class="icon-chevron-down"></i></span>
+									<span class="hand-cursor text-primary show-hover" data-toggle="collapse" data-target="#work-uofa-info">
+										<small>2010 - 2010</small> University of Adelaide, School of Computer Science
+										<i class="icon-chevron-down show-more"></i>
+									</span>
 								</h3>
-								<p class="collapse" id="work-uofa-info">Research, Real Time Computing</p>
+								<div class="collapse" id="work-uofa-info">
+									<p class="lead">Research, Real Time Computing</p>
+								</div>
 							</div>						
 						</div>
 				 </div>
@@ -184,10 +209,26 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/Chart.js"></script>
     <script src="js/site.js"></script>
     <script type="text/javascript">
       $(function(){
-
+				$('#work-dws-info').on('shown.bs.collapse', function() { 
+					$(this).find('canvas[data-chart=doughnut]').each(function() {
+						var ctx = $(this).get(0).getContext("2d");
+						var percentage = parseInt($(this).attr('data-percent'));
+						var chart = new Chart(ctx).Doughnut([
+								{ value: percentage, color: '#F7464A'},
+								{ value: 100-percentage, color:'#FFF'}
+							], 
+							{
+								animationEasing : 'easeOutQuart'
+							});
+						console.log(chart)
+					});
+				}).on('hide.bs.collapse', function() { 
+					
+				});
       });
     </script>
   </body>
