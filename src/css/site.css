@@ -38,6 +38,7 @@ a:hover {
 .navbar-default {
   background-color: #fff;
   background-color:rgba(255,255,255,0.65);
+  padding-right:15px;
  }
  
  .navbar-brand {
@@ -179,8 +180,10 @@ i.scroll:hover {
 
 @media (max-width: 768px) {
 	
+	.navbar-brand { display: none; }
+	
   .header {
-	background: url(../img/bg.jpg) no-repeat center center scroll; 
+	background: url(../img/bg2.jpg) no-repeat center center scroll; 
   }
 
   .callout {
