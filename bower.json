@@ -1,6 +1,6 @@
 {
   "name": "dannyp.net",
-  "version": "0.0.1",
+  "version": "2",
   "authors": [
     "Danny Pallotta <danny.pallotta@gmail.com>"
   ],
@@ -18,12 +18,15 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "bootstrap": "~3.0.0",
-    "font-awesome": "~3.2.1",
-    "html5-boilerplate": "~4.3.0",
-    "toastr": "~2.0.1",
-    "html5shiv": "~3.7.0",
-    "respond": "~1.3.0"
+  "dependencies": {	
+		"bootstrap": "/Users/danny/Documents/dev/dannyp.net/bower_components/bootstrap/dist/js/bootstrap.js,/Users/danny/Documents/dev/dannyp.net/bower_components/bootstrap/dist/css/bootstrap.css,/Users/danny/Documents/dev/dannyp.net/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot,/Users/danny/Documents/dev/dannyp.net/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg,/Users/danny/Documents/dev/dannyp.net/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf,/Users/danny/Documents/dev/dannyp.net/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+		"chartjs": "/Users/danny/Documents/dev/dannyp.net/bower_components/chartjs/Chart.min.js",
+		"font-awesome": "/Users/danny/Documents/dev/dannyp.net/bower_components/font-awesome",
+		"html5-boilerplate": "/Users/danny/Documents/dev/dannyp.net/bower_components/html5-boilerplate",
+		"html5shiv": "/Users/danny/Documents/dev/dannyp.net/bower_components/html5shiv/dist/html5shiv.js,/Users/danny/Documents/dev/dannyp.net/bower_components/html5shiv/dist/html5shiv-printshiv.js",
+		"jquery": "/Users/danny/Documents/dev/dannyp.net/bower_components/jquery/jquery.js",
+		"respond": "/Users/danny/Documents/dev/dannyp.net/bower_components/respond",
+		"skrollr": "/Users/danny/Documents/dev/dannyp.net/bower_components/skrollr",
+		"toastr": "/Users/danny/Documents/dev/dannyp.net/bower_components/toastr/toastr.js,/Users/danny/Documents/dev/dannyp.net/bower_components/toastr/toastr.css"
   }
 }
