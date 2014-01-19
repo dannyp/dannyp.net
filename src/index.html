@@ -53,14 +53,15 @@
       </nav>
     </header>
     
-			<div id="top" class="header">
+  	<div id="skrollr-body">
+			<div id="top" class="header" data-start="height:800px;" data-200="height:0;">
 				<div class="vert-text">
 					<h1 class="white-shadow">Danny Pallotta</h1>
 					<h3 class="white-shadow">Software Developer</h3>
 					<a href="#about-me" class="btn btn-primary btn-lg">Find Out More</a>
 				</div>
 			</div>
-    
+     
 			<div id="about-me" class="intro">
 				<div class="container">
 					<div class="row">
@@ -69,7 +70,9 @@
 								Hi, I'm Danny, a software developer living in Adelaide, Australia. I enjoy clean code, elegant solutions
 							 	and the challenge of solving problems.
           		</h2>
-							<p class="lead"></p>
+							<p class="lead">
+								If you're looking to get in touch, jump straight to the <a href="#contact">Contact</a> section below.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -105,18 +108,7 @@
 										</div>
 								</div>
 							</div>
-							
-							<div id="work-labibo">
-								<h3>
-									<span class="hand-cursor text-primary show-hover" data-toggle="collapse" data-target="#work-labibo-info">
-										<small>2010 - 2010</small> Labibo Interactive 
-										<i class="icon-chevron-down show-more"></i>
-									</span>
-								</h3>
-								<div class="collapse" id="work-labibo-info">
-									<p class="lead">Web Developer / R&amp;D</p>
-								</div>
-							</div>
+										
 				
 							<div id="work-uofa">
 								<h3>
@@ -127,8 +119,37 @@
 								</h3>
 								<div class="collapse" id="work-uofa-info">
 									<p class="lead">Research, Real Time Computing</p>
+									<p>
+										This role was a short-term research assignment into the capabilities of Windows XP as a real-time
+										software system. My research was performed as part of a larger research collaboration between the 
+										Defence Science and Technology Organisation (DSTO) and Adelaide University School of Computer Science.
+										My direct report in this role was Dr Katrina Faulkner, School of Computer Science, Adelaide University. 
+									</p>
+									<p>
+										The key deliverable was a presentation of my findings to the stakeholders from DSTO and supporting technical
+										write up. Skills demonstrated in this role were technical writing, an ability to work autonomously and 
+										to a deadline, and research and data analysis. 
+									</p>
 								</div>
-							</div>						
+							</div>	
+							
+								<div id="work-labibo">
+								<h3>
+									<span class="hand-cursor text-primary show-hover" data-toggle="collapse" data-target="#work-labibo-info">
+										<small>2010 - 2010</small> Labibo Interactive 
+										<i class="icon-chevron-down show-more"></i>
+									</span>
+								</h3>
+								<div class="collapse" id="work-labibo-info">
+									<p class="lead">Web Developer / R&amp;D</p>
+									<p>
+										This was a short term casual position with a fresh startup firm in Adelaide. Work in this role involved
+										C#.NET development as well as HTML/Javascript/CSS Web Design and Development. I enjoyed being a part of a small
+										but enthusiastic team and a part of the "startup culture". I left this role to take on the research position
+										at Adelaide University.
+									</p>
+								</div>
+							</div>					
 						</div>
 				 </div>
 				</div>
@@ -205,14 +226,17 @@
        	 </div>
       </div>
     
-
+		</div>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/Chart.js"></script>
     <script src="js/site.js"></script>
+    <script src="js/skrollr.js"></script>
     <script type="text/javascript">
       $(function(){
+       	var s = skrollr.init();
+      
 				$('#work-dws-info').on('shown.bs.collapse', function() { 
 					$(this).find('canvas[data-chart=doughnut]').each(function() {
 						var ctx = $(this).get(0).getContext("2d");
@@ -226,10 +250,15 @@
 							});
 						console.log(chart)
 					});
-				}).on('hide.bs.collapse', function() { 
-					
+				}).on('hidden.bs.collapse', function() {  
+					$(this).find('canvas[data-chart=doughnut]').each(function() {
+							var ctx = $(this).get(0).getContext("2d");
+							
+							ctx.clearRect(0,0,100, 100	);	
+						});
 				});
       });
     </script>
+    
   </body>
 </html>
