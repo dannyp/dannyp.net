@@ -81,6 +81,9 @@ a:hover {
 
 
 /* WOrk */
+#work, #education, #contact {
+	padding: 25px 0;
+}
 
 
 /* Services */
@@ -120,6 +123,8 @@ i.service-icon {
   -o-background-size: cover;
   background-size: cover;
 }
+
+
 
 /* Portfolio */
 

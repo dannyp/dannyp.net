@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 		}
 	},
     watch: {
-      files: ['src/*'],
+      files: ['src/*', 'src/js/*', 'src/css/*'],
       tasks: ['copy:basic']
     }
   });
